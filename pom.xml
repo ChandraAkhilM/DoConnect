@@ -10,7 +10,7 @@
 	<groupId>com.doconnnet</groupId>
 	<artifactId>springbootapplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springbootapplication</name>
+	<name>DoConnectApplication</name>
 	<description>Implement doconnect web application using spring-boot, angular, mysql.</description>
 	<properties>
 		<java.version>17</java.version>
@@ -48,11 +48,11 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.9</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

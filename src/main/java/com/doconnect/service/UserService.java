@@ -10,12 +10,16 @@ import org.springframework.stereotype.Service;
 import com.doconnect.model.User;
 import com.doconnect.repository.UserRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+//@Slf4j
 public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
 	public List<User> findAllUsers() {
+//		log.info("dummy");
 		List<User> users = userRepository.findAll();
 		if(users!=null && !users.isEmpty()) {
 			return users;
