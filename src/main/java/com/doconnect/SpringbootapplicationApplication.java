@@ -1,9 +1,12 @@
-package com.doconnnet;
+package com.doconnect;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+
+@OpenAPIDefinition
 @SpringBootApplication
 public class SpringbootapplicationApplication implements CommandLineRunner{
 
