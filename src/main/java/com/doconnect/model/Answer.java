@@ -1,7 +1,7 @@
 package com.doconnect.model;
 
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,10 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,6 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 @Table(name="answers")
 public class Answer {
 	@Id
@@ -42,7 +42,6 @@ public class Answer {
 	@Lob()
 	private String answer;
 	
-	@Column(name="createdAt")
-	@Temporal(TemporalType.DATE)
-	private Date createdAt;
+	@Column(name="created_time")
+	private Timestamp createdAt;
 }
