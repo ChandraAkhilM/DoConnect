@@ -1,40 +1,14 @@
 package com.doconnect.service;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.http.ResponseEntity;
 
 import com.doconnect.model.User;
-import com.doconnect.repository.UserRepository;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Service
-//@Slf4j
-public class UserService {
-	@Autowired
-	private UserRepository userRepository;
-	
-	public List<User> findAllUsers() {
-//		log.info("dummy");
-		List<User> users = userRepository.findAll();
-		if(users!=null && !users.isEmpty()) {
-			return users;
-		}
-		User user = new User(2L, "king", "admin");
-		return Arrays.asList(user);
-	}
-			
-	public User findById(Long id) {
-		Optional<User> user = userRepository.findById(id);
-		if(user.isPresent()) {
-			return user.get();
-		}
-		return null;
-	}
-	
-	
+public interface UserService {
+	ResponseEntity<User> getAllUsers();
+	User getUserById(Long user_id);
+	ResponseEntity<User> getUserByName(String user_name);
+	Boolean getIsUserAdmin(Long user_id);
 }

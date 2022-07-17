@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.doconnect.model.User;
 import com.doconnect.repository.UserRepository;
-import com.doconnect.service.UserService;
+import com.doconnect.serviceImpl.UserServiceImpl;
 
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
-	UserService userService;
+	UserServiceImpl userService;
 	
 	@GetMapping("/info")
 	public List<User> get() {
