@@ -1,13 +1,11 @@
 package com.doconnect.serviceImpl;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.doconnect.model.User;
@@ -36,11 +34,11 @@ public class UserServiceImpl implements UserService {
 	public List<User> getUserByName(String user_name) {
 		User exampleUser = User.builder()
 				.userName(user_name).build();
-		ExampleMatcher nameMatcher = ExampleMatcher.matching().withMatcher("user_name", 
+		ExampleMatcher nameMatcher = ExampleMatcher.matching().withMatcher("u_user_name", 
 				ExampleMatcher.GenericPropertyMatchers.ignoreCase().contains())
-				.withIgnorePaths("id", "role", "email");
-		Example<User> nameExample = Example.of(exampleUser, nameMatcher)
-		List<User> users = userRepository.findAll();
+				.withIgnorePaths("u_id", "u_role", "u_email");
+		Example<User> nameExample = Example.of(exampleUser, nameMatcher);
+		List<User> users = userRepository.findAll(nameExample);
 		return users;
 	}
 

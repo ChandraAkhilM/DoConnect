@@ -24,7 +24,7 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public List<Question> getQuestionsByUser(Long user_id) {
 		Question exampleQuestion = Question.builder()
-				.userId(user_id).build();
+				.uId(user_id).build();
 		ExampleMatcher userIdMatcher = ExampleMatcher.matching()
 				.withMatcher("user_id", ExampleMatcher.GenericPropertyMatchers.exact())
 				.withIgnorePaths("q_id", "is_approved", "question", "created_time");

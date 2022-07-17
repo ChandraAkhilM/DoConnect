@@ -25,10 +25,10 @@ public class AnswerServiceImpl implements AnswerService{
 	@Override
 	public List<Answer> getAnswersByUser(Long user_id) {
 		Answer exampleAnswer = Answer.builder()
-				.userId(user_id).build();
+				.uId(user_id).build();
 		ExampleMatcher userIdMatcher = ExampleMatcher.matching()
 				.withMatcher("user_id", ExampleMatcher.GenericPropertyMatchers.exact())
-				.withIgnorePaths("a_id", "is_approved", "q_id", "created_time", "answer"));
+				.withIgnorePaths("a_id", "is_approved", "q_id", "created_time", "answer");
 		Example<Answer> userIdExample = Example.of(exampleAnswer, userIdMatcher);
 		return answerRepository.findAll(userIdExample);
 	}
@@ -36,10 +36,10 @@ public class AnswerServiceImpl implements AnswerService{
 	@Override
 	public List<Answer> getAnswersByQuestion(Long question_id) {
 		Answer exampleAnswer = Answer.builder()
-				.userId(question_id).build();
+				.uId(question_id).build();
 		ExampleMatcher questionIdMatcher = ExampleMatcher.matching()
-				.withMatcher("q_id", ExampleMatcher.GenericPropertyMatchers.exact())
-				.withIgnorePaths("a_id", "is_approved", "user_id", "created_time", "answer"));
+				.withMatcher("a_q_id", ExampleMatcher.GenericPropertyMatchers.exact())
+				.withIgnorePaths("a_id", "a_is_approved", "a_user_id", "a_created_time", "a_answer");
 		Example<Answer> questionIdExample = Example.of(exampleAnswer, questionIdMatcher);
 		return answerRepository.findAll(questionIdExample);
 	}
